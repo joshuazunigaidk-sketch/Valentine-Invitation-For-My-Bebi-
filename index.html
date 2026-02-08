@@ -17,7 +17,7 @@
 <body>
 
 <div class="container">
-    <img id="catImage" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueGZueGZueGZueGZueGZueGZueGZueGZueGZueGZueGZueGZueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif">
+    <img id="catImage" src="https://res.cloudinary.com/demo/image/fetch/https://media.giphy.com/media/cLS1cfxvGOPVpf9g3y/giphy.gif">
     <h1 id="questionText">Will you be my valentine?</h1>
     <div class="buttons">
         <button id="yesBtn">YES!</button>
@@ -34,35 +34,19 @@
 
     const messages = ["No", "Are you sure??", "Really sure???", "Sige na pls", "Ayaw mo pa rin ba??", "Ah ayaw mo talaga?"];
     
-    // These are direct links to ensure they load
+    // Using Cloudinary fetch to prevent Giphy from blocking the images
     const images = [
-        "https://media.giphy.com/media/vP5gX7MtkT9OqKDC2k/giphy.gif",
-        "https://media.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif",
-        "https://media.giphy.com/media/ISOckXUfHLYMk/giphy.gif"
+        "https://res.cloudinary.com/demo/image/fetch/https://media.giphy.com/media/vP5gX7MtkT9OqKDC2k/giphy.gif",
+        "https://res.cloudinary.com/demo/image/fetch/https://media.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif",
+        "https://res.cloudinary.com/demo/image/fetch/https://media.giphy.com/media/ISOckXUfHLYMk/giphy.gif"
     ];
 
     noBtn.addEventListener('click', () => {
         noCount++;
-        if (noCount < messages.length) {
-            questionText.innerText = messages[noCount];
-        }
+        if (noCount < messages.length) questionText.innerText = messages[noCount];
         
         if (noCount === 1) catImage.src = images[0];
         if (noCount === 3) catImage.src = images[1];
         if (noCount >= 5) catImage.src = images[2];
 
-        const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-        yesBtn.style.fontSize = (currentSize * 1.5) + "px";
-        yesBtn.style.padding = (currentSize * 0.6) + "px " + (currentSize * 1.3) + "px";
-    });
-
-    yesBtn.addEventListener('click', () => {
-        questionText.innerText = "Iloveyousomuch Aonoyuki Angel P Zuñiga ko ❤️";
-        // Green Peony Image
-        catImage.src = "https://images.unsplash.com/photo-1591880911020-d34960ca306c?auto=format&fit=crop&q=80&w=500"; 
-        document.querySelector('.buttons').style.display = "none";
-    });
-</script>
-
-</body>
-</html>
+        const currentSize = parseFloat(window.get
