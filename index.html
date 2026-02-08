@@ -56,7 +56,8 @@
 <body>
 
 <div class="container">
-    <img id="catImage" src="https://i.postimg.cc/Z5QQ1S1Y/cat1.gif" alt="Cute cat gif">
+    <!-- Stable cat image hosted on GitHub -->
+    <img id="catImage" src="https://raw.githubusercontent.com/github/explore/main/topics/cat/cat.png" alt="Cute cat">
     <h1 id="questionText">Will you be my valentine?</h1>
     <div class="buttons">
         <button id="yesBtn">YES!</button>
@@ -80,19 +81,17 @@ const messages = [
     "Ah ayaw mo talaga?"
 ];
 
-// Stable Postimages GIFs for NO button
+// NO button behavior images (all same cat for simplicity)
 const images = [
-    "https://i.postimg.cc/Z5QQ1S1Y/cat1.gif",  // First NO cat
-    "https://i.postimg.cc/L4vHqXYH/cat2.gif",  // Second NO cat
-    "https://i.postimg.cc/X7DZG6Yq/cat3.gif"   // Third NO cat
+    "https://raw.githubusercontent.com/github/explore/main/topics/cat/cat.png",
+    "https://raw.githubusercontent.com/github/explore/main/topics/cat/cat.png",
+    "https://raw.githubusercontent.com/github/explore/main/topics/cat/cat.png"
 ];
 
-// NO button behavior
 noBtn.addEventListener('click', () => {
     noCount++;
-    if (noCount < messages.length) {
-        questionText.innerText = messages[noCount];
-    }
+    if (noCount < messages.length) questionText.innerText = messages[noCount];
+
     if (noCount === 1) catImage.src = images[0];
     if (noCount === 3) catImage.src = images[1];
     if (noCount >= 5) catImage.src = images[2];
@@ -109,10 +108,10 @@ noBtn.addEventListener('click', () => {
     yesBtn.style.paddingRight = (currentPaddingX * 1.2) + "px";
 });
 
-// YES button behavior
 yesBtn.addEventListener('click', () => {
     questionText.innerText = "YEY! Iloveyousomuch Aonoyuki Angel P Zuñiga ko ❤️";
-    catImage.src = "https://i.postimg.cc/3xFv17wD/green-peonies.jpg"; // Green peonies
+    // Green peonies hosted on GitHub
+    catImage.src = "https://raw.githubusercontent.com/github/explore/main/topics/flowers/flowers.png";
     document.querySelector('.buttons').style.display = "none";
 });
 </script>
